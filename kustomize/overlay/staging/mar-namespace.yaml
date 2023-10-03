@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mar
+  labels:
+    environment-id: env_f003b435-9173-45fd-bbed-6ade1003e7f0
+    project-id: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
+    project-name: londonbridge
+    environment-name: staging
+    organization-id: org_01b50229-db34-43d4-8f3e-d1aeb683d900

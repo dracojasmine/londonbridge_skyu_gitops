@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bar
+  labels:
+    environment-id: env_8c9ef75e-22b0-41c5-9313-eb03c96adc45
+    project-id: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
+    project-name: londonbridge
+    environment-name: prod
+    organization-id: org_01b50229-db34-43d4-8f3e-d1aeb683d900

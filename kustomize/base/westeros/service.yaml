@@ -4,7 +4,7 @@ metadata:
   annotations: {}
   labels:
     app: westeros
-    application-id: project_2477492e-c130-429b-9999-425fcd7aca51
+    application-id: project_831027d6-89de-4c72-871e-97152eebf14e
   name: westeros
 spec:
   selector:

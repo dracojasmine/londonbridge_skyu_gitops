@@ -29,7 +29,7 @@ spec:
   labels:
     app: westeros
     env: production
-    applicationId: project_2477492e-c130-429b-9999-425fcd7aca51
+    applicationId: project_831027d6-89de-4c72-871e-97152eebf14e
     projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
     environmentId: env_904257f0-f5ac-4185-8ecd-25520d4b53ba

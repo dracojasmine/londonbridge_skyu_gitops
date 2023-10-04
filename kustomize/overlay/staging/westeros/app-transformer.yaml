@@ -18,6 +18,7 @@ spec:
       configMounts: []
       applicationPorts: []
       healthChecks: []
+      name: mist-main
   minReplicas: 1
   maxReplicas: 5
   terminationGracePeriodSeconds: 30
@@ -28,7 +29,7 @@ spec:
   labels:
     app: westeros
     env: production
-    applicationId: project_29983304-302a-4c94-9c6e-7fe82d253f50
+    applicationId: project_2477492e-c130-429b-9999-425fcd7aca51
     projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
     environmentId: env_f003b435-9173-45fd-bbed-6ade1003e7f0

@@ -43,6 +43,6 @@ spec:
       pvc:
         claimName: woah-nested-update
   type: service
-  serviceType: LoadBalancer
+  serviceType: rower
   namespace: bar
   name: solice

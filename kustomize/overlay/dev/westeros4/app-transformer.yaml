@@ -8,10 +8,10 @@ metadata:
         path: skyu-app-transformer
 spec:
   applicationContainers:
-    - imageTag: latest
+    - imageTag: redis
       cpuRequestMili: 100
       cpuLimitMili: 200
-      memoryRequestMb: 100
+      memoryRequestMb: 500
       memoryLimitMb: 200
       args: []
       command: []
@@ -19,16 +19,27 @@ spec:
       applicationPorts: []
       healthChecks: []
       name: mist-main
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 200
+      memoryRequestMb: 500
+      memoryLimitMb: 200
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: kelcier-main
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 99
   terminationGracePeriodSeconds: 30
   nodeSelector:
     kubernetes.io/hostname: my-node-name
   suspend: false
   ttlSecondsAfterFinished: 0
   labels:
-    app: westeros4
-    env: production
+    app: my-app
+    env: dev
     applicationId: project_8635c1a3-f7a1-4a3f-a684-f677fffb2dd9
     projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
@@ -41,8 +52,8 @@ spec:
     - name: my-volume
       type: PersistentVolumeClaim
       pvc:
-        claimName: my-claim
+        claimName: woah-nested-update
   type: service
   serviceType: LoadBalancer
-  namespace: foo
-  name: mist
+  namespace: bar
+  name: solice

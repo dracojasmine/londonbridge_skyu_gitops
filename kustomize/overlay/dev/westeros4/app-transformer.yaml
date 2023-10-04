@@ -8,17 +8,6 @@ metadata:
         path: skyu-app-transformer
 spec:
   applicationContainers:
-    - imageTag: redis
-      cpuRequestMili: 100
-      cpuLimitMili: 200
-      memoryRequestMb: 500
-      memoryLimitMb: 200
-      args: []
-      command: []
-      configMounts: []
-      applicationPorts: []
-      healthChecks: []
-      name: mist-main
     - imageTag: latest
       cpuRequestMili: 100
       cpuLimitMili: 200

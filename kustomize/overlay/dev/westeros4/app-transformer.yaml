@@ -39,7 +39,6 @@ spec:
       percentage: 80
   volumes:
     - name: my-volume
-      type: PersistentVolumeClaim
       pvc:
         claimName: woah-nested-update
   type: service

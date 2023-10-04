@@ -9,7 +9,7 @@ metadata:
 spec:
   applicationContainers:
     - imageTag: latest
-      cpuRequestMili: 100
+      cpuRequestMili: 123
       cpuLimitMili: 200
       memoryRequestMb: 500
       memoryLimitMb: 200
@@ -18,7 +18,7 @@ spec:
       configMounts: []
       applicationPorts: []
       healthChecks: []
-      name: kelcier-main
+      name: kelcier23-main
   minReplicas: 1
   maxReplicas: 99
   terminationGracePeriodSeconds: 30
@@ -43,6 +43,6 @@ spec:
       pvc:
         claimName: woah-nested-update
   type: service
-  serviceType: rower
+  serviceType: rowere
   namespace: bar
-  name: solice
+  name: marie

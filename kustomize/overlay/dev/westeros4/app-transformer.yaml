@@ -28,12 +28,13 @@ spec:
   ttlSecondsAfterFinished: 0
   labels:
     app: my-app
-    env: dev
+    env: stage
     applicationId: project_8635c1a3-f7a1-4a3f-a684-f677fffb2dd9
     projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
     environmentId: env_904257f0-f5ac-4185-8ecd-25520d4b53ba
     environmentName: dev
+    reddit: disc
   horizontalAutoScalingRules:
     - ruleType: cpu
       percentage: 80

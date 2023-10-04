@@ -7,22 +7,28 @@ metadata:
       exec:
         path: skyu-app-transformer
 spec:
-  type: service
-  applicationContainers: []
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 200
+      memoryRequestMb: 100
+      memoryLimitMb: 200
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
   minReplicas: 1
   maxReplicas: 5
   terminationGracePeriodSeconds: 30
   nodeSelector:
     kubernetes.io/hostname: my-node-name
-  serviceType: LoadBalancer
-  namespace: foo
   suspend: false
   ttlSecondsAfterFinished: 0
-  name: mist
   labels:
     app: westeros
     env: production
-    applicationId: project_2dc6d288-e7a4-422a-8b77-781c813cfa39
+    applicationId: project_07d68926-5786-42c8-9e7e-d9491554b154
     projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
     environmentId: env_904257f0-f5ac-4185-8ecd-25520d4b53ba
@@ -35,3 +41,7 @@ spec:
       type: PersistentVolumeClaim
       pvc:
         claimName: my-claim
+  type: service
+  serviceType: LoadBalancer
+  namespace: foo
+  name: mist

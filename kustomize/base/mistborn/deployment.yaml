@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistborn
+  labels:
+    app: mistborn
+    application-id: project_1390ee1e-b2d6-45e8-8882-97b39092d2b6
+spec:
+  selector:
+    matchLabels:
+      app: mistborn
+  template:
+    metadata:
+      labels:
+        app: mistborn

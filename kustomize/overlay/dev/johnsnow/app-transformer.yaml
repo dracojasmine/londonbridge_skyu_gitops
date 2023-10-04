@@ -1,0 +1,47 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  type: service
+  applicationContainers:
+    - name: main-container
+      imageRegistry: my-registry
+      imageTag: v1.0
+      cpuRequestMili: 100
+      cpuLimitMili: 200
+      memoryRequestMb: 100
+      memoryLimitMb: 200
+      applicationPorts:
+        - port: 80
+          protocol: TCP
+  minReplicas: 1
+  maxReplicas: 5
+  terminationGracePeriodSeconds: 30
+  nodeSelector:
+    kubernetes.io/hostname: my-node-name
+  serviceType: LoadBalancer
+  namespace: foo
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  name: mist
+  labels:
+    app: johnsnow
+    env: production
+    applicationId: project_cabb7b3b-eca3-4b10-8e7a-3ffad4ac9329
+    projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
+    organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
+    environmentId: env_904257f0-f5ac-4185-8ecd-25520d4b53ba
+    environmentName: dev
+  horizontalAutoScalingRules:
+    - ruleType: cpu
+      percentage: 80
+  volumes:
+    - name: my-volume
+      type: PersistentVolumeClaim
+      pvc:
+        claimName: my-claim

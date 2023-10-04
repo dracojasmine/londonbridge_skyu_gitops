@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: johnsnow
+  labels:
+    app: johnsnow
+    application-id: project_cabb7b3b-eca3-4b10-8e7a-3ffad4ac9329
+spec:
+  selector:
+    matchLabels:
+      app: johnsnow
+  template:
+    metadata:
+      labels:
+        app: johnsnow

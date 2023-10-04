@@ -8,16 +8,7 @@ metadata:
         path: skyu-app-transformer
 spec:
   type: service
-  applicationContainers:
-    - name: main-container
-      imageRegistry: my-registry
-      imageTag: v1.0
-      cpuLimitMili: 200
-      memoryRequestMb: 100
-      memoryLimitMb: 200
-      applicationPorts:
-        - port: 80
-          protocol: TCP
+  applicationContainers: []
   minReplicas: 1
   maxReplicas: 5
   terminationGracePeriodSeconds: 30
@@ -31,7 +22,7 @@ spec:
   labels:
     app: westeros
     env: production
-    applicationId: project_28bc43b7-fcab-4bce-a93e-7bb2fa8e25ec
+    applicationId: project_97d17baf-7c2e-41be-af10-7b01da502abe
     projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
     environmentId: env_8c9ef75e-22b0-41c5-9313-eb03c96adc45

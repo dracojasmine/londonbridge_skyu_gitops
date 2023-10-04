@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app: westeros
+    application-id: project_28bc43b7-fcab-4bce-a93e-7bb2fa8e25ec
+  name: westeros
+spec:
+  selector:
+    app: westeros

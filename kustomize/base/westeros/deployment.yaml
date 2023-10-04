@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: westeros
+  labels:
+    app: westeros
+    application-id: project_28bc43b7-fcab-4bce-a93e-7bb2fa8e25ec
+spec:
+  selector:
+    matchLabels:
+      app: westeros
+  template:
+    metadata:
+      labels:
+        app: westeros

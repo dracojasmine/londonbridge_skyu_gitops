@@ -8,17 +8,6 @@ metadata:
         path: skyu-app-transformer
 spec:
   applicationContainers:
-    - imageTag: latest-v
-      cpuRequestMili: 123
-      cpuLimitMili: 999
-      memoryRequestMb: 999
-      memoryLimitMb: 999
-      args: []
-      command: []
-      configMounts: []
-      applicationPorts: []
-      healthChecks: []
-      name: basic-main
     - imageTag: latest
       cpuRequestMili: 444
       cpuLimitMili: 444
@@ -34,7 +23,7 @@ spec:
   maxReplicas: 99
   terminationGracePeriodSeconds: 30
   nodeSelector:
-    kubernetes.io/hostname: portkey-1234556
+    kubernetes.io/hostname: portkey-ssss
   suspend: false
   ttlSecondsAfterFinished: 0
   labels:
@@ -50,10 +39,10 @@ spec:
     - ruleType: cpu
       percentage: 80
   volumes:
-    - name: my-volume-1233
+    - name: my-volume-1233ssss
       pvc:
-        claimName: woah-nested-updated-1233
+        claimName: woah-nested-updated-1233ssss
   type: job
   serviceType: rowere
-  namespace: defaul123
-  name: azure123
+  namespace: defaul123ssss
+  name: azure123ssss

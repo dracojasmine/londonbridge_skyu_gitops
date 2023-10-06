@@ -8,22 +8,44 @@ metadata:
         path: skyu-app-transformer
 spec:
   applicationContainers:
-    - imageTag: latest
+    - imageTag: latest-v
       cpuRequestMili: 123
-      cpuLimitMili: 200
-      memoryRequestMb: 500
-      memoryLimitMb: 200
+      cpuLimitMili: 999
+      memoryRequestMb: 999
+      memoryLimitMb: 999
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: basic-main
+    - imageTag: latest
+      cpuRequestMili: 444
+      cpuLimitMili: 444
+      memoryRequestMb: 999
+      memoryLimitMb: 444
       args: []
       command: []
       configMounts: []
       applicationPorts: []
       healthChecks: []
       name: kelcier23-main
+    - imageTag: latest
+      cpuRequestMili: 444
+      cpuLimitMili: 444
+      memoryRequestMb: 999
+      memoryLimitMb: 444
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: kelcier234444-main
   minReplicas: 1
   maxReplicas: 99
   terminationGracePeriodSeconds: 30
   nodeSelector:
-    kubernetes.io/hostname: my-node-name
+    kubernetes.io/hostname: portkey-123
   suspend: false
   ttlSecondsAfterFinished: 0
   labels:
@@ -39,10 +61,10 @@ spec:
     - ruleType: cpu
       percentage: 80
   volumes:
-    - name: my-volume
+    - name: my-volume-9
       pvc:
-        claimName: woah-nested-update
+        claimName: woah-nested-updated-123
   type: service
   serviceType: rowere
-  namespace: bar
-  name: marie
+  namespace: default
+  name: azure

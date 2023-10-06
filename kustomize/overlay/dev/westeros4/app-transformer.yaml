@@ -3,7 +3,7 @@ kind: SkyUAppTransformer
 metadata:
   name: skyu-deployment
   annotations:
-    config.kubernetes.io/function:
+    config.kubernetes.io/function: |
       exec:
         path: skyu-app-transformer
 spec:
@@ -29,23 +29,12 @@ spec:
       configMounts: []
       applicationPorts: []
       healthChecks: []
-      name: kelcier23-main
-    - imageTag: latest
-      cpuRequestMili: 444
-      cpuLimitMili: 444
-      memoryRequestMb: 999
-      memoryLimitMb: 444
-      args: []
-      command: []
-      configMounts: []
-      applicationPorts: []
-      healthChecks: []
       name: kelcier234444-main
   minReplicas: 1
   maxReplicas: 99
   terminationGracePeriodSeconds: 30
   nodeSelector:
-    kubernetes.io/hostname: portkey-123
+    kubernetes.io/hostname: portkey-1234556
   suspend: false
   ttlSecondsAfterFinished: 0
   labels:
@@ -61,10 +50,10 @@ spec:
     - ruleType: cpu
       percentage: 80
   volumes:
-    - name: my-volume-9
+    - name: my-volume-1233
       pvc:
-        claimName: woah-nested-updated-123
-  type: service
+        claimName: woah-nested-updated-1233
+  type: job
   serviceType: rowere
-  namespace: default
-  name: azure
+  namespace: defaul123
+  name: azure123

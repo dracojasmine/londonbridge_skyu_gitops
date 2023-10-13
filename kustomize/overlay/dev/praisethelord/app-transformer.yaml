@@ -4,46 +4,74 @@ metadata:
   name: skyu-deployment
   annotations:
     config.kubernetes.io/function: |
-      exec:
-        path: skyu-app-transformer
+      container:
+        image:  kustomize_dev:1.0.0
 spec:
   applicationContainers:
-    - imageTag: latest
+    - imageTag: 1.22.0
       cpuRequestMili: 100
       cpuLimitMili: 200
       memoryRequestMb: 100
       memoryLimitMb: 200
-      args: []
-      command: []
-      configMounts: []
-      applicationPorts: []
-      healthChecks: []
-      name: mist-main
+      command:
+        - hello
+        - world
+      applicationPorts:
+        - port: 80
+          protocol: TCP
+      healthChecks:
+        - httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
+          probeType:
+            - readinessProbe
+            - livenessProbe
+      name: main-container
+      imageRegistry: test
+    - name: second-container
+      imageRegistry: second
+      imageTag: 1.22.0
+      cpuRequestMili: 100
+      cpuLimitMili: 200
+      memoryRequestMb: 100
+      memoryLimitMb: 200
+      command:
+        - hello3
+        - world2
+      applicationPorts:
+        - port: 3000
+          protocol: TCP
+        - port: 8081
+          protocol: TCP
+      configMounts:
+        - secretName: secret-file
+          mountPath: /etc/config/file.txt
+          isFile: true
+          key: file.txt
+        - configMapName: config-dir
+          mountPath: /etc/config/some-path
+          isFile: false
   minReplicas: 20
-  maxReplicas: 9
-  terminationGracePeriodSeconds: 45
-  nodeSelector:
-    kubernetes.io/hostname: my-node-name
+  maxReplicas: 6
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
   suspend: false
-  ttlSecondsAfterFinished: 0
   labels:
-    app: praisethelord
-    env: production
-    applicationId: app_a3357df6-fd82-45d8-b65c-33c79fb19b57
-    projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
-    organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
-    environmentId: env_904257f0-f5ac-4185-8ecd-25520d4b53ba
-    environmentName: dev
+    app: test
     jackson: reddit
   horizontalAutoScalingRules:
     - ruleType: cpu
+      percentage: 100
+    - ruleType: memory
       percentage: 80
-  volumes:
-    - name: my-volume
-      type: PersistentVolumeClaim
-      pvc:
-        claimName: my-claim
   type: service
-  serviceType: LoadBalancer
-  namespace: foo
-  name: mist
+  serviceType: ClusterIP
+  namespace: test
+  name: app-name
+  cronTab: ''

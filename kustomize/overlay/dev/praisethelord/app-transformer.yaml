@@ -36,8 +36,8 @@ spec:
       imageRegistry: test
     - name: second-container
       imageRegistry: second
-      imageTag: 1.22.0
-      cpuRequestMili: 100
+      imageTag: 1.22.1
+      cpuRequestMili: 300
       cpuLimitMili: 200
       memoryRequestMb: 100
       memoryLimitMb: 200
@@ -57,14 +57,13 @@ spec:
         - configMapName: config-dir
           mountPath: /etc/config/some-path
           isFile: false
-  minReplicas: 20
+  minReplicas: 1
   maxReplicas: 6
   terminationGracePeriodSeconds: 60
   nodeSelector: {}
   suspend: true
   labels:
     app: test
-    jackson: reddit
   horizontalAutoScalingRules:
     - ruleType: cpu
       percentage: 100
@@ -72,6 +71,6 @@ spec:
       percentage: 80
   type: service
   serviceType: ClusterIP
-  namespace: test
+  namespace: test123
   name: app-name
-  cronTab: ''
+  cronTab: cronTab

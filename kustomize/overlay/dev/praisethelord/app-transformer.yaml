@@ -19,9 +19,9 @@ spec:
       applicationPorts: []
       healthChecks: []
       name: mist-main
-  minReplicas: 1
-  maxReplicas: 5
-  terminationGracePeriodSeconds: 30
+  minReplicas: 20
+  maxReplicas: 9
+  terminationGracePeriodSeconds: 45
   nodeSelector:
     kubernetes.io/hostname: my-node-name
   suspend: false
@@ -34,6 +34,7 @@ spec:
     organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
     environmentId: env_904257f0-f5ac-4185-8ecd-25520d4b53ba
     environmentName: dev
+    jackson: reddit
   horizontalAutoScalingRules:
     - ruleType: cpu
       percentage: 80

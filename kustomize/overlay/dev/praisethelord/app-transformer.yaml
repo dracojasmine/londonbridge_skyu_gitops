@@ -61,7 +61,7 @@ spec:
   maxReplicas: 6
   terminationGracePeriodSeconds: 60
   nodeSelector: {}
-  suspend: false
+  suspend: true
   labels:
     app: test
     jackson: reddit

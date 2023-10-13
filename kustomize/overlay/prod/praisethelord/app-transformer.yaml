@@ -1,0 +1,48 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 200
+      memoryRequestMb: 100
+      memoryLimitMb: 200
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: mist-main
+  minReplicas: 1
+  maxReplicas: 5
+  terminationGracePeriodSeconds: 30
+  nodeSelector:
+    kubernetes.io/hostname: my-node-name
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  labels:
+    app: praisethelord
+    env: production
+    applicationId: app_a3357df6-fd82-45d8-b65c-33c79fb19b57
+    projectId: project_1721eeda-2824-4f3c-b0c0-3ec047e465b5
+    organizationId: org_01b50229-db34-43d4-8f3e-d1aeb683d900
+    environmentId: env_8c9ef75e-22b0-41c5-9313-eb03c96adc45
+    environmentName: prod
+  horizontalAutoScalingRules:
+    - ruleType: cpu
+      percentage: 80
+  volumes:
+    - name: my-volume
+      type: PersistentVolumeClaim
+      pvc:
+        claimName: my-claim
+  type: service
+  serviceType: LoadBalancer
+  namespace: foo
+  name: mist
